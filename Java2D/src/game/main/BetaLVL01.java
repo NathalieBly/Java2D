@@ -56,7 +56,7 @@ public class BetaLVL01 extends Game implements IEventListener {
 		int sFrames = 0;
 
 		// Button sprites and variables
-
+		Sprite Background = new Sprite("Background", "background.png");
 		// Platform sprites and variables
 	    Brick brick = new Brick("Brick","Brick.png");
 	    
@@ -163,6 +163,16 @@ public class BetaLVL01 extends Game implements IEventListener {
 				pressUpInfo.setAlpha(0f);
 
 			}
+			
+			if(complete.getAlpha()>.05){
+				complete.setAlpha(complete.getAlpha()-.05);
+
+			}
+			else{
+				complete.setAlpha(0f);
+
+			}
+			
 			
 //			Rectangle infoRectBox = new Rectangle((int)pressUpInfo.getxPos(), 
 //					(int)pressUpInfo.getyPos(), (int)pressUpInfo.getWidth(), 
@@ -327,8 +337,10 @@ public class BetaLVL01 extends Game implements IEventListener {
 		public void draw(Graphics g) {
 
 			// Background
-			g.setColor(Color.GRAY);
-			g.fillRect(0, 0, 1400, 900);
+			//g.setColor(Color.GRAY);
+			//g.fillRect(0, 0, 1400, 900);
+			Background.draw(g);
+			
 
 			if (player != null) {
 				goal.draw(g);
@@ -336,7 +348,6 @@ public class BetaLVL01 extends Game implements IEventListener {
 				pressUpInfo.draw(g);
 				player.draw(g);
 				complete.draw(g);
-
 			}
 
 			// Draw savestates
@@ -372,6 +383,7 @@ public class BetaLVL01 extends Game implements IEventListener {
 			//Intersecting with door
 			if (event.getEventType() == "inGoalEvent") {
 				inGoal = true;
+				if(complete.getAlpha() < .9) {complete.setAlpha(complete.getAlpha()+.10);}
 			    //  compTween.animate(TweenableParams.scaleX, 3, 1, 1500);
 		        //  compTween.animate(TweenableParams.scaleY, 3, 1, 1500);
 		        //  compTween.animate(TweenableParams.alpha, 0, 1, 1500);

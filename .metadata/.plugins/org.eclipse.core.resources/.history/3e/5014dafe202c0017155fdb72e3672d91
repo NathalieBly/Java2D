@@ -58,7 +58,6 @@ public class BetaLVL04 extends Game implements IEventListener {
 			int sFrames = 0;
 
 			// Button sprites and variables
-			Sprite Background = new Sprite("Background", "background.png");
 			Sprite button = new Sprite("button", "button.png");
 			boolean ButtonPressed = false;
 			// Platform sprites and variables
@@ -171,15 +170,6 @@ public class BetaLVL04 extends Game implements IEventListener {
 			}
 				else{
 					twoInfo.setAlpha(0f);
-
-				}
-				
-				if(complete.getAlpha()>.05){
-					complete.setAlpha(complete.getAlpha()-.05);
-
-				}
-				else{
-					complete.setAlpha(0f);
 
 				}
 				
@@ -363,10 +353,9 @@ public class BetaLVL04 extends Game implements IEventListener {
 			public void draw(Graphics g) {
 
 				// Background
-				//g.setColor(Color.GRAY);
-				//g.fillRect(0, 0, 1400, 900);
-				Background.draw(g);
-				
+				g.setColor(Color.GRAY);
+				g.fillRect(0, 0, 1400, 900);
+
 				if (player != null) {
 					goal.draw(g);
 					button.draw(g);
@@ -409,7 +398,6 @@ public class BetaLVL04 extends Game implements IEventListener {
 				//Intersecting with door
 				if (event.getEventType() == "inGoalEvent") {
 					inGoal = true;
-					if(complete.getAlpha() < .9) {complete.setAlpha(complete.getAlpha()+.10);}
 				/*	 compTween.animate(TweenableParams.scaleX, 3, 1, 1500);
 			          compTween.animate(TweenableParams.scaleY, 3, 1, 1500);
 			          compTween.animate(TweenableParams.alpha, 0, 1, 1500);

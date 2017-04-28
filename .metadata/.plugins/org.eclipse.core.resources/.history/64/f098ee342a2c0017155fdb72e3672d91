@@ -207,14 +207,14 @@ public class BetaLVL06 extends Game implements IEventListener
 
     	TweenTransitions transit = new TweenTransitions();
     	
-    	/*if(complete.getAlpha()>.05){
+    	if(complete.getAlpha()>.05){
 			complete.setAlpha(complete.getAlpha()-.05);
 
 		}
 		else{
 			complete.setAlpha(0f);
 
-		}*/
+		}
     	// Our "save" function key
 		if(pressedKeys.contains(KeyEvent.getKeyText(KeyEvent.VK_SPACE)) && sFrames == 0){
 			
@@ -519,13 +519,13 @@ public class BetaLVL06 extends Game implements IEventListener
     	
     	//Intersecting with door
 		if (event.getEventType() == "inGoalEvent") {
-			//if(complete.getAlpha() < .9) {complete.setAlpha(complete.getAlpha()+.10);}
-		  compTween.animate(TweenableParams.scaleX, 3, 1, 1500);
+			if(complete.getAlpha() < .9) {complete.setAlpha(complete.getAlpha()+.10);}
+		/*  compTween.animate(TweenableParams.scaleX, 3, 1, 1500);
           compTween.animate(TweenableParams.scaleY, 3, 1, 1500);
           compTween.animate(TweenableParams.alpha, 0, 1, 1500);
           compTween.addEventListener(this, TweenEvent.TWEEN_COMPLETE_EVENT);
 
-          juggler.add(compTween); 
+          juggler.add(compTween); */
 		}
         
         // This event is called when the button is pressed

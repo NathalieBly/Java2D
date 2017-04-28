@@ -57,7 +57,7 @@ public class Beta extends Game implements IEventListener {
 	static BetaLVL06 level06;
 
 
-	Sprite Background = new Sprite("Background", "background.png");
+
 	Sprite Splash = new Sprite("Splash", "Splash.png");
 
 	// Info Sprites
@@ -685,7 +685,6 @@ public class Beta extends Game implements IEventListener {
 		// Background
 		g.setColor(Color.GRAY);
 		g.fillRect(0, 0, 1400, 900);
-		Background.draw(g);
 		
 		if(!lvlStart){
 		Splash.draw(g);
